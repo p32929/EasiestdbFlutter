@@ -157,7 +157,8 @@ But if you really want that function implemented in `EasiestSqlFlutter` library,
 1. fork the repo
 2. create a new branch by your `github username`
 3. add the code
-4. make a pull request
+4. commit + push
+5. make a pull request
 You're welcome...
 
 ## License
