@@ -1,4 +1,4 @@
-# EasiestSqlFlutter
+# [EasiestSqlFlutter](https://github.com/p32929/EasiestSqlFlutter)
 The Easiest and the Laziest approach to Flutter SQL Database.
 
 ## Basic Usage
