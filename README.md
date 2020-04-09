@@ -189,7 +189,7 @@ SOFTWARE.
 ```
 
 ## Contribution
-Lastly, I wanna thank the Flutter team for the amazing framework and tekartik for the sqflite library.
+Lastly, I wanna thank the Flutter team for the amazing framework and [tekartik](https://github.com/tekartik/) for the sqflite library.
 And thanks to everyone for using `EasiestSqlFlutter` and thanks in advance to everyone for contributing...
 
 Also, you might wanna try the Android/Java version of this library from here: https://github.com/p32929/EasiestSqlLibrary
