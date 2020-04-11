@@ -14,7 +14,7 @@ Add as many tables and columns you want using these simple codes.
 Suppose, we're trying to create a database of two tables named People and Test, each containing three columns.
 So, we'll write:
 ```
-EasiestDb.init(dbName: "Data", version: 2, tables: [
+EasiestDb.init(dbName: "Data", version: 1, tables: [
     DbTable("People", dbColumns: [
       DbColumn('Col 1'),
       DbColumn('Col 2'),

@@ -33,19 +33,19 @@ class EasiestDb {
   static List<DbTable> _tables = [];
   static Database _db;
 
-  //
+  // deleteDatabase --- The function name explains everything though
   static void deleteDatabase() {
     String sql = ' DROP DATABASE ${_dbName.replaceAll(".db", "")} ';
     _db.execute(sql);
   }
 
-  //
+  // deleteTable --- The function name explains everything though
   static void deleteTable(int tableIndex) {
     String sql = ' DROP TABLE ${_tables[tableIndex]._tableName} ';
     _db.execute(sql);
   }
 
-  //
+  // deleteDataBySearchingInColumn --- The function name explains everything though
   static Future<int> deleteDataBySearchingInColumn(
       int tableIndex, Datum datum) {
     String sql =
@@ -53,14 +53,14 @@ class EasiestDb {
     return _db.rawDelete(sql);
   }
 
-  //
+  // deleteOneData --- The function name explains everything though
   static Future<int> deleteOneData(int tableIndex, int rowId) {
     String sql =
         ' DELETE FROM ${_tables[tableIndex]._tableName} WHERE ID = $rowId ';
     return _db.rawDelete(sql);
   }
 
-  //
+  // updateOneDataById --- The function name explains everything though
   static Future<int> updateOneDataById(
       int tableIndex, int rowId, List<Datum> data) {
     //
@@ -82,7 +82,7 @@ class EasiestDb {
     return _db.rawUpdate(sql);
   }
 
-  //
+  // getRowsByMatchingColumnData --- The function name explains everything though
   static Future<List<Map<String, dynamic>>> getRowsByMatchingColumnData(
       int tableIndex, int columnIndex, var valueToMatch,
       {bool ascending = true}) {
@@ -93,7 +93,7 @@ class EasiestDb {
     return _db.rawQuery(sql);
   }
 
-  //
+  // getOneRowData --- The function name explains everything though
   static Future<List<Map<String, dynamic>>> getOneRowData(
       int tableIndex, int rowId) {
     //
@@ -102,7 +102,7 @@ class EasiestDb {
     return _db.rawQuery(sql);
   }
 
-  //
+  // getAllData --- The function name explains everything though
   static Future<List<Map<String, dynamic>>> getAllData(int tableIndex,
       {bool ascending = true}) {
     //
@@ -112,7 +112,7 @@ class EasiestDb {
     return _db.rawQuery(sql);
   }
 
-  //
+  // addData --- The function name explains everything though
   static Future<int> addData(int tableIndex, List<Datum> data) {
     //
     String sql = ' INSERT INTO ${_tables[tableIndex]._tableName} ( ';
@@ -143,18 +143,7 @@ class EasiestDb {
     return _db.rawInsert(sql);
   }
 
-  //
-  static Future<List<Map<String, dynamic>>> runCustomSqlQuery(
-      String sqlCommand) {
-    //
-    return _db.rawQuery(sqlCommand);
-  }
-
-  static void runCustomSqlCommand(String sqlCommand) {
-    _db.execute(sqlCommand);
-  }
-
-  //
+  // init --- The function name explains everything though
   static Future<Database> init({
     String dbName = 'demo.db',
     int version = 1,
@@ -228,6 +217,7 @@ class DbTable {
   String _tableName;
   List<DbColumn> _dbColumns = [];
 
+  // Constructor --
   DbTable(String tableName, {List<DbColumn> dbColumns}) {
     _tableName = tableName.replaceAll(" ", "_").toUpperCase();
     _dbColumns = dbColumns;
@@ -249,6 +239,7 @@ class DbTable {
 class DbColumn {
   String _columnName = "", _columnDataType = "";
 
+  // Constructor --
   DbColumn(String columnName, {String columnDataType = " TEXT "}) {
     _columnName = " " +
         columnName.replaceAll(" ", "_").replaceAll(".", "_").toUpperCase() +
@@ -273,6 +264,7 @@ class Datum {
   int _columnIndex;
   String _value = "";
 
+  // Constructor --
   Datum(int columnIndex, String value) {
     _columnIndex = columnIndex;
     _value = value;
