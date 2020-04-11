@@ -35,51 +35,51 @@ class EasiestDb {
 
   //
   static void deleteDatabase() {
-    String SQL = ' DROP DATABASE ${_dbName.replaceAll(".db", "")} ';
-    _db.execute(SQL);
+    String sql = ' DROP DATABASE ${_dbName.replaceAll(".db", "")} ';
+    _db.execute(sql);
   }
 
   //
   static void deleteTable(int tableIndex) {
-    String SQL = ' DROP TABLE ${_tables[tableIndex]._tableName} ';
-    _db.execute(SQL);
+    String sql = ' DROP TABLE ${_tables[tableIndex]._tableName} ';
+    _db.execute(sql);
   }
 
   //
   static Future<int> deleteDataBySearchingInColumn(
       int tableIndex, Datum datum) {
-    String SQL =
+    String sql =
         ' DELETE FROM ${_tables[tableIndex]._tableName} WHERE ${_tables[tableIndex]._dbColumns[datum._columnIndex]._columnName} = ${datum._value} ';
-    return _db.rawDelete(SQL);
+    return _db.rawDelete(sql);
   }
 
   //
   static Future<int> deleteOneData(int tableIndex, int rowId) {
-    String SQL =
+    String sql =
         ' DELETE FROM ${_tables[tableIndex]._tableName} WHERE ID = $rowId ';
-    return _db.rawDelete(SQL);
+    return _db.rawDelete(sql);
   }
 
   //
   static Future<int> updateOneDataById(
       int tableIndex, int rowId, List<Datum> data) {
     //
-    String SQL = ' UPDATE ${_tables[tableIndex]._tableName} SET ';
+    String sql = ' UPDATE ${_tables[tableIndex]._tableName} SET ';
     List<DbColumn> columns = _tables[tableIndex]._dbColumns;
 
     for (int i = 0; i < data.length; i++) {
-      SQL +=
+      sql +=
           " ${columns[data[i]._columnIndex]._columnName} = \'${data[i]._value}\' ";
       if (i == data.length - 1) {
-        SQL += " ";
+        sql += " ";
       } else {
-        SQL += " , ";
+        sql += " , ";
       }
     }
 
-    SQL += " WHERE ID = $rowId ";
+    sql += " WHERE ID = $rowId ";
 
-    return _db.rawUpdate(SQL);
+    return _db.rawUpdate(sql);
   }
 
   //
@@ -88,18 +88,18 @@ class EasiestDb {
       {bool ascending = true}) {
     //
     String orderBy = ascending ? "ASC" : "DESC";
-    String SQL =
+    String sql =
         ' SELECT * FROM ${_tables[tableIndex]._tableName} WHERE ${_tables[tableIndex]._dbColumns[columnIndex]._columnName}=$valueToMatch ORDER BY ID $orderBy ';
-    return _db.rawQuery(SQL);
+    return _db.rawQuery(sql);
   }
 
   //
   static Future<List<Map<String, dynamic>>> getOneRowData(
       int tableIndex, int rowId) {
     //
-    String SQL =
+    String sql =
         ' SELECT * FROM ${_tables[tableIndex]._tableName} WHERE ID=$rowId ';
-    return _db.rawQuery(SQL);
+    return _db.rawQuery(sql);
   }
 
   //
@@ -107,40 +107,40 @@ class EasiestDb {
       {bool ascending = true}) {
     //
     String orderBy = ascending ? "ASC" : "DESC";
-    String SQL =
+    String sql =
         ' SELECT * FROM ${_tables[tableIndex]._tableName} ORDER BY ID $orderBy ';
-    return _db.rawQuery(SQL);
+    return _db.rawQuery(sql);
   }
 
   //
   static Future<int> addData(int tableIndex, List<Datum> data) {
     //
-    String SQL = ' INSERT INTO ${_tables[tableIndex]._tableName} ( ';
+    String sql = ' INSERT INTO ${_tables[tableIndex]._tableName} ( ';
     List<DbColumn> columns = _tables[tableIndex]._dbColumns;
 
     for (int i = 0; i < data.length; i++) {
-      SQL += " " + columns[data[i]._columnIndex]._columnName + " ";
+      sql += " " + columns[data[i]._columnIndex]._columnName + " ";
 
       if (i == data.length - 1) {
-        SQL += " ) ";
+        sql += " ) ";
       } else {
-        SQL += " , ";
+        sql += " , ";
       }
     }
 
-    SQL += " VALUES ( ";
+    sql += " VALUES ( ";
 
     for (int i = 0; i < data.length; i++) {
-      SQL += " \'" + data[i]._value + "\' ";
+      sql += " \'" + data[i]._value + "\' ";
 
       if (i == data.length - 1) {
-        SQL += " ) ";
+        sql += " ) ";
       } else {
-        SQL += " , ";
+        sql += " , ";
       }
     }
 
-    return _db.rawInsert(SQL);
+    return _db.rawInsert(sql);
   }
 
   //
@@ -175,7 +175,7 @@ class EasiestDb {
         onCreate: (db, version) {
           print("onCreate");
           for (int i = 0; i < tables.length; i++) {
-            String SQL = " CREATE TABLE " + tables[i]._tableName + " ( ";
+            String sql = " CREATE TABLE " + tables[i]._tableName + " ( ";
 
             tables[i]._dbColumns.insert(
                 0,
@@ -184,20 +184,20 @@ class EasiestDb {
             List<DbColumn> columns = tables[i].dbColumns;
 
             for (int j = 0; j < columns.length; j++) {
-              SQL += " " +
+              sql += " " +
                   columns[j]._columnName +
                   " " +
                   columns[j]._columnDataType +
                   " ";
 
               if (j == columns.length - 1) {
-                SQL += " ) ";
+                sql += " ) ";
               } else {
-                SQL += " , ";
+                sql += " , ";
               }
             }
             _tables = tables;
-            db.execute(SQL);
+            db.execute(sql);
             print("$_dbName creatd");
           }
         },
