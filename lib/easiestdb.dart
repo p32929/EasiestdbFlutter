@@ -147,10 +147,10 @@ class EasiestDb {
   static Future<Database> init({
     String dbName = 'demo.db',
     int version = 1,
-    List<DbTable> tables,
+    List<DbTable> dbTables,
   }) async {
     //
-    _tables = tables;
+    _tables = dbTables;
     _dbPath = await getDatabasesPath();
     _dbName = dbName.replaceAll(" ", "_").toUpperCase();
     if (!_dbName.endsWith(".db")) {
@@ -163,10 +163,10 @@ class EasiestDb {
     return _db = await openDatabase(join(_dbPath, _dbName),
         onCreate: (db, version) {
           print("onCreate");
-          for (int i = 0; i < tables.length; i++) {
-            String sql = " CREATE TABLE " + tables[i]._tableName + " ( ";
+          for (int i = 0; i < dbTables.length; i++) {
+            String sql = " CREATE TABLE " + dbTables[i]._tableName + " ( ";
 
-            List<DbColumn> columns = tables[i]._dbColumns;
+            List<DbColumn> columns = dbTables[i]._dbColumns;
 
             for (int j = 0; j < columns.length; j++) {
               sql += " " +
@@ -198,9 +198,9 @@ class EasiestDb {
         },
         onUpgrade: (Database db, int oldVersion, int newVersion) {
           print("onUpgrade");
-          _tables = tables;
-          for (int i = 0; i < tables.length; i++) {
-            db.execute(" DROP TABLE IF EXISTS " + tables[i]._tableName);
+          _tables = dbTables;
+          for (int i = 0; i < dbTables.length; i++) {
+            db.execute(" DROP TABLE IF EXISTS " + dbTables[i]._tableName);
           }
         });
   }
