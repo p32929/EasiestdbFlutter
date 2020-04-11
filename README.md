@@ -23,7 +23,7 @@ EasiestDb.init(dbName: "Data", version: 1, tables: [
       DbColumn('Col 3'),
       DbColumn('Col 4', columnDataType: "UNIQUE"),
     ]),
-  ])
+  ]);
 ```
 Look carefully, we didn't add any `ID primary key` column. That's because `EasiestSqlFlutter` library does it by default for each table.
 

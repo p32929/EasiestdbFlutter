@@ -213,14 +213,8 @@ class DbTable {
   // Constructor --
   DbTable(String tableName, {List<DbColumn> dbColumns}) {
     _tableName = tableName.replaceAll(" ", "_").toUpperCase();
-
-    for (int i = 0; i < dbColumns.length; i++) {
-      dbColumns.insert(
-          0,
-          DbColumn("ID",
-              columnDataType: " INTEGER PRIMARY KEY AUTOINCREMENT "));
-    }
-
+    dbColumns.insert(0,
+        DbColumn("ID", columnDataType: " INTEGER PRIMARY KEY AUTOINCREMENT "));
     _dbColumns = dbColumns;
   }
 }
