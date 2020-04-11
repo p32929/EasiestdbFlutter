@@ -170,7 +170,7 @@ class EasiestDb {
                 0,
                 DbColumn("ID",
                     columnDataType: " INTEGER PRIMARY KEY AUTOINCREMENT "));
-            List<DbColumn> columns = tables[i].dbColumns;
+            List<DbColumn> columns = tables[i]._dbColumns;
 
             for (int j = 0; j < columns.length; j++) {
               sql += " " +
@@ -222,18 +222,6 @@ class DbTable {
     _tableName = tableName.replaceAll(" ", "_").toUpperCase();
     _dbColumns = dbColumns;
   }
-
-  List<DbColumn> get dbColumns => _dbColumns;
-
-  set dbColumns(List<DbColumn> value) {
-    _dbColumns = value;
-  }
-
-  String get tableName => _tableName;
-
-  set tableName(String value) {
-    _tableName = value.replaceAll(" ", "_");
-  }
 }
 
 class DbColumn {
@@ -246,18 +234,6 @@ class DbColumn {
         " ";
     _columnDataType = columnDataType.toUpperCase();
   }
-
-  get columnDataType => _columnDataType;
-
-  set columnDataType(value) {
-    _columnDataType = value;
-  }
-
-  String get columnName => _columnName;
-
-  set columnName(String value) {
-    _columnName = value.replaceAll(" ", "_");
-  }
 }
 
 class Datum {
@@ -268,17 +244,5 @@ class Datum {
   Datum(int columnIndex, String value) {
     _columnIndex = columnIndex;
     _value = value;
-  }
-
-  String get value => _value;
-
-  set value(String value) {
-    _value = value;
-  }
-
-  int get columnIndex => _columnIndex;
-
-  set columnIndex(int value) {
-    _columnIndex = value;
   }
 }

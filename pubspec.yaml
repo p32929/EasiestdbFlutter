@@ -1,6 +1,6 @@
 name: easiestdb
-description: The Easiest and Laziest approach to Flutter SQL Database. Pub.dev says the description is too small. What I need to write now here? I do not know. But writing just the see if pub.dev keeps showing the same error or not :D
-version: 1.0.3
+description: The Easiest and Laziest approach to Flutter SQL Database. Manage Database easily.
+version: 1.0.4
 author: p32929
 homepage: https://github.com/p32929/EasiestSqlFlutter
 
