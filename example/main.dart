@@ -1,7 +1,8 @@
 import 'package:easiestdb/easiestdb.dart';
 
 void main() {
-  // init
+
+  // init ---
   EasiestDb.init(dbName: "Data", version: 2, tables: [
     DbTable("People", dbColumns: [
       DbColumn('Col 1'),
@@ -13,7 +14,7 @@ void main() {
     ]),
   ]);
 
-  // addData
+  // addData ---
   EasiestDb.addData(0, [
     Datum(1, "AAA"),
     Datum(2, "BBB"),
@@ -21,34 +22,31 @@ void main() {
     print("ID: $id");
   });
 
-  // getAllData
+  // getAllData ---
   EasiestDb.getAllData(0).then((listMap) {
     listMap.forEach((map) {
       print("${map.values.elementAt(0)}"); // Showing the value of the ID column
-      print(
-          "${map.values.elementAt(1)}"); // Showing the value from another column
+      print("${map.values.elementAt(1)}"); // Showing the value from another column
     });
   });
 
-  // getOneRowData
+  // getOneRowData ---
   EasiestDb.getOneRowData(0, 7).then((listMap) {
     listMap.forEach((map) {
       print("${map.values.elementAt(0)}"); // Showing the value of the ID column
-      print(
-          "${map.values.elementAt(1)}"); // Showing the value from another column
+      print("${map.values.elementAt(1)}"); // Showing the value from another column
     });
   });
 
-  // getRowsByMatchingColumnData
+  // getRowsByMatchingColumnData ---
   EasiestDb.getRowsByMatchingColumnData(0, 1, 'AAA').then((listMap) {
     listMap.forEach((map) {
       print("${map.values.elementAt(0)}"); // Showing the value of the ID column
-      print(
-          "${map.values.elementAt(1)}"); // Showing the value from another column
+      print("${map.values.elementAt(1)}"); // Showing the value from another column
     });
   });
 
-  // updateOneDataById
+  // updateOneDataById ---
   EasiestDb.updateOneDataById(0, 7, [
     Datum(1, "F F F F F F "),
     Datum(2, "G G G G G G "),
@@ -56,20 +54,21 @@ void main() {
     print("Count: $count");
   });
 
-  // deleteOneData
+  // deleteOneData ---
   EasiestDb.deleteOneData(0, 7).then((val) {
     print("Count: $val");
   });
 
-  // deleteDataBySearchingInColumn
-  EasiestDb.deleteDataBySearchingInColumn(0, Datum(1, "F F F F F F "))
-      .then((val) {
+  // deleteDataBySearchingInColumn ---
+  EasiestDb.deleteDataBySearchingInColumn(0, Datum(
+      1, "F F F F F F "
+  )).then((val) {
     print("Count: $val");
   });
 
-  // deleteTable
+  // deleteTable ---
   EasiestDb.deleteTable(1);
 
-  // deleteDatabase
+  // deleteDatabase ---
   EasiestDb.deleteDatabase();
 }
