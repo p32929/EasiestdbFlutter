@@ -166,10 +166,6 @@ class EasiestDb {
           for (int i = 0; i < tables.length; i++) {
             String sql = " CREATE TABLE " + tables[i]._tableName + " ( ";
 
-            tables[i]._dbColumns.insert(
-                0,
-                DbColumn("ID",
-                    columnDataType: " INTEGER PRIMARY KEY AUTOINCREMENT "));
             List<DbColumn> columns = tables[i]._dbColumns;
 
             for (int j = 0; j < columns.length; j++) {
@@ -185,7 +181,7 @@ class EasiestDb {
                 sql += " , ";
               }
             }
-            _tables = tables;
+
             db.execute(sql);
             print("$_dbName creatd");
           }
@@ -193,15 +189,12 @@ class EasiestDb {
         version: _version,
         onConfigure: (Database db) {
           print("onConfigure");
-          _tables = tables;
         },
         onOpen: (Database db) {
           print("onOpen");
-          _tables = tables;
         },
         onDowngrade: (Database db, int oldVersion, int newVersion) {
           print("onDowngrade");
-          _tables = tables;
         },
         onUpgrade: (Database db, int oldVersion, int newVersion) {
           print("onUpgrade");
@@ -220,6 +213,14 @@ class DbTable {
   // Constructor --
   DbTable(String tableName, {List<DbColumn> dbColumns}) {
     _tableName = tableName.replaceAll(" ", "_").toUpperCase();
+
+    for (int i = 0; i < dbColumns.length; i++) {
+      dbColumns.insert(
+          0,
+          DbColumn("ID",
+              columnDataType: " INTEGER PRIMARY KEY AUTOINCREMENT "));
+    }
+
     _dbColumns = dbColumns;
   }
 }

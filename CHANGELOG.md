@@ -11,5 +11,8 @@ Nothing's changed. Had to update the version code to change some info in the pub
 Nothing's changed. Had to update the version code to change some info in the pub.dev
 
 ## 1.0.5
-TODO: WAIT
+Minor bug fixed
+
+## 1.0.6
+Minor bug fixed
 
