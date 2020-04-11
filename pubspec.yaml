@@ -1,5 +1,5 @@
 name: easiestdb
-description: The Easiest and Laziest approach to Flutter SQL Database.
+description: The Easiest and Laziest approach to Flutter SQL Database. Pub.dev says the description is too small. What I need to write now here? I do not know. But writing just the see if pub.dev keeps showing the same error or not :D
 version: 1.0.3
 author: p32929
 homepage: https://github.com/p32929/EasiestSqlFlutter
@@ -22,13 +22,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-  plugin:
-    platforms:
-      android:
-        package: p32929.easiestsqlflutter
-        pluginClass: EasiestSqlFlutter
-      ios:
-        pluginClass: EasiestSqlFlutter
 
   # To add assets to your package, add an assets section, like this:
   # assets:
