@@ -1,6 +1,9 @@
 # [EasiestSqlFlutter](https://github.com/p32929/EasiestSqlFlutter)
 The Easiest and the Laziest approach to Flutter SQL Database.
 
+# Installation
+check out the [pub.dev](https://pub.dev/packages/easiestdb) for updated installation instructions
+
 ## Basic Usage
 Init using Database name, Table names and Column names. After that, you can do all kinds of CRUD ( Create, Read, Update, Delete ) operations.
 
