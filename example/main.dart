@@ -3,7 +3,7 @@ import 'package:easiestdb/easiestdb.dart';
 void main() {
 
   // init ---
-  EasiestDb.init(dbName: "Data", version: 1, tables: [
+  EasiestDb.init(dbName: "Data", version: 1, dbTables: [
     DbTable("People", dbColumns: [
       DbColumn('Col 1'),
       DbColumn('Col 2'),
