@@ -16,3 +16,9 @@ Minor bug fixed
 ## 1.0.6
 Minor bug fixed
 
+## 1.0.7
+Minor bug fixed
+
+## 1.0.8
+Minor bug fixed
+

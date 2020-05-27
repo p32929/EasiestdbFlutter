@@ -49,7 +49,7 @@ class EasiestDb {
   static Future<int> deleteDataBySearchingInColumn(
       int tableIndex, Datum datum) {
     String sql =
-        ' DELETE FROM ${_tables[tableIndex]._tableName} WHERE ${_tables[tableIndex]._dbColumns[datum._columnIndex]._columnName} = ${datum._value} ';
+        ' DELETE FROM ${_tables[tableIndex]._tableName} WHERE ${_tables[tableIndex]._dbColumns[datum._columnIndex]._columnName} = \'${datum._value}\' ';
     return _db.rawDelete(sql);
   }
 
@@ -89,7 +89,7 @@ class EasiestDb {
     //
     String orderBy = ascending ? "ASC" : "DESC";
     String sql =
-        ' SELECT * FROM ${_tables[tableIndex]._tableName} WHERE ${_tables[tableIndex]._dbColumns[columnIndex]._columnName}=$valueToMatch ORDER BY ID $orderBy ';
+        ' SELECT * FROM ${_tables[tableIndex]._tableName} WHERE ${_tables[tableIndex]._dbColumns[columnIndex]._columnName}=\'$valueToMatch\' ORDER BY ID $orderBy ';
     return _db.rawQuery(sql);
   }
 

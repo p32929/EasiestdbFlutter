@@ -19,12 +19,12 @@ So, we'll write:
 ```
 EasiestDb.init(dbName: "Data", version: 1, dbTables: [
     DbTable("People", dbColumns: [
-      DbColumn('Col 1'),
+      DbColumn('Col 1'), // Default data type is TEXT
       DbColumn('Col 2'),
     ]),
     DbTable("Test", dbColumns: [
       DbColumn('Col 3'),
-      DbColumn('Col 4', columnDataType: "UNIQUE"),
+      DbColumn('Col 4', columnDataType: "TEXT UNIQUE"),
     ]),
   ]);
 ```
@@ -41,7 +41,7 @@ Add data in the 1st(0) table:
 ```
 EasiestDb.addData(0, [
     Datum(1, "AAA"),
-    Datum(2, "BBB"),
+    Datum(2, "123"),
 ]).then((id) {
     print("ID: $id");
 });
@@ -78,7 +78,7 @@ EasiestDb.getOneRowData(0, 7).then((listMap) {
 ```
 
 ## Search data
-###### `static Future<List<Map<String, dynamic>>> getRowsByMatchingColumnData(int tableIndex, int columnIndex var valueToMatch, {bool ascending = true})`
+###### `static Future<List<Map<String, dynamic>>> getRowsByMatchingColumnData(int tableIndex, int columnIndex, var valueToMatch, {bool ascending = true})`
 
 Searching data in 1st(0) table in the 2nd(1) column by a value:
 
