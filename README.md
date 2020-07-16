@@ -1,10 +1,21 @@
-# [EasiestSqlFlutter](https://github.com/p32929/EasiestSqlFlutter)
+![New Project](https://user-images.githubusercontent.com/6418354/87636772-0ce14100-c763-11ea-8d8b-0c7c36ae5ebe.png)
+
 The Easiest and the Laziest approach to Flutter SQL Database.
 
-# Installation
+<a href="#usage">How to use</a> •
+<a href="#contribution">Contribution</a> •
+<a href="#license">License</a>
+<a href="#support">Support</a>
+
+
+[![](https://badgen.net/github/watchers/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/stars/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/forks/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/issues/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/open-issues/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/closed-issues/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/label-issues/p32929/EasiestSqlFlutter/help-wanted/open)]() [![](https://badgen.net/github/prs/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/open-prs/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/closed-prs/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/merged-prs/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/commits/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/last-commit/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/branches/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/releases/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/tags/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/license/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/contributors/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/dependents-pkg/p32929/EasiestSqlFlutter)]() 
+
+[![](https://badgen.net/pub/v/easiestdb)]() [![](https://badgen.net/pub/likes/easiestdb)]() [![](https://badgen.net/pub/sdk-version/easiestdb)]() [![](https://badgen.net/pub/flutter-platform/easiestdb)]() 
+
+## Installation
 check out the [pub.dev](https://pub.dev/packages/easiestdb) for updated installation instructions
 
-## Basic Usage
+## Usage
 Init using Database name, Table names and Column names. After that, you can do all kinds of CRUD ( Create, Read, Update, Delete ) operations.
 
 Add as many tables and columns you want using these simple codes.
@@ -28,7 +39,7 @@ EasiestDb.init(dbName: "Data", version: 1, dbTables: [
     ]),
   ]);
 ```
-Look carefully, we didn't add any `ID primary key` column. That's because `EasiestSqlFlutter` library does it by default for each table.
+Look carefully, we didn't add any `ID primary key` column. That's because `easiestdb` library does it by default for each table.
 
 Also, you may add as many SQL Constrains in `columnDataType` parameter. By default, its set to ` TEXT `.
 
@@ -158,7 +169,7 @@ And last but not the least, if you're trying to do something but there's no a fu
 EasiestDb.getDatabaseObject().execute(sqlCommand)
 ```
 
-But if you really want that function implemented in `EasiestSqlFlutter` library, you can: 
+But if you really want that function implemented in `easiestdb` library, you can: 
 1. fork the repo
 2. create a new branch by your `github username`
 3. add the code
@@ -195,6 +206,9 @@ SOFTWARE.
 
 ## Contribution
 Lastly, I wanna thank the Flutter team for the amazing framework and [tekartik](https://github.com/tekartik/) for the sqflite library.
-And thanks to everyone for using `EasiestSqlFlutter` and thanks in advance to everyone for contributing...
+And thanks to everyone for using `easiestdb` and thanks in advance to everyone for contributing...
 
 Also, you might wanna try the Android/Java version of this library from here: https://github.com/p32929/EasiestSqlLibrary
+
+## Support
+If you like my works and want to support me/my works, feel free to [Support or Donate](p32929.github.io/SendMoney2Me/)
