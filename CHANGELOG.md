@@ -28,3 +28,6 @@ Updated readme ( Can't update Just Readme without updating the whole library. Th
 ## 1.0.10
 Updated readme ( Can't update Just Readme without updating the whole library. That's a bummer)
 
+## 1.0.11
+Updated readme ( Can't update Just Readme without updating the whole library. That's a bummer)
+

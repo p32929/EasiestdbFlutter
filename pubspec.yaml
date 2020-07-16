@@ -1,6 +1,6 @@
 name: easiestdb
 description: The Easiest and Laziest approach to Flutter SQL Database. Manage Database easily.
-version: 1.0.10
+version: 1.0.11
 homepage: https://github.com/p32929/EasiestSqlFlutter
 
 environment:
