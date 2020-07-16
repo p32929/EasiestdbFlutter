@@ -2,23 +2,29 @@
 initial release
 
 ## 1.0.2
-Nothing's changed. Had to update the version code to change some info in the pub.dev
+Updated readme ( Can't update Just Readme without updating the whole library. That's a bummer)
 
 ## 1.0.3
-Nothing's changed. Had to update the version code to change some info in the pub.dev
+Updated readme ( Can't update Just Readme without updating the whole library. That's a bummer)
 
 ## 1.0.4
-Nothing's changed. Had to update the version code to change some info in the pub.dev
+Updated readme ( Can't update Just Readme without updating the whole library. That's a bummer)
 
 ## 1.0.5
-Minor bug fixed
+Updated readme ( Can't update Just Readme without updating the whole library. That's a bummer)
 
 ## 1.0.6
-Minor bug fixed
+Updated readme ( Can't update Just Readme without updating the whole library. That's a bummer)
 
 ## 1.0.7
-Minor bug fixed
+Updated readme ( Can't update Just Readme without updating the whole library. That's a bummer)
 
 ## 1.0.8
-Minor bug fixed
+Updated readme ( Can't update Just Readme without updating the whole library. That's a bummer)
+
+## 1.0.9
+Updated readme ( Can't update Just Readme without updating the whole library. That's a bummer)
+
+## 1.0.10
+Updated readme ( Can't update Just Readme without updating the whole library. That's a bummer)
 

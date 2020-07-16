@@ -211,4 +211,4 @@ And thanks to everyone for using `easiestdb` and thanks in advance to everyone f
 Also, you might wanna try the Android/Java version of this library from here: https://github.com/p32929/EasiestSqlLibrary
 
 ## Support
-If you like my works and want to support me/my works, feel free to [Support or Donate](p32929.github.io/SendMoney2Me/)
+If you like my works and want to support me/my works, feel free to support or donate. My payment details can be found here: https://p32929.github.io/SendMoney2Me/
