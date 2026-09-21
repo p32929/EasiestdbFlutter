@@ -1,31 +1,12 @@
-![New Project](https://user-images.githubusercontent.com/6418354/87636772-0ce14100-c763-11ea-8d8b-0c7c36ae5ebe.png)
+# easiestdb
 
-The Easiest and the Laziest approach to Flutter SQL Database for Flutter.
+![easiestdb](https://user-images.githubusercontent.com/6418354/87636772-0ce14100-c763-11ea-8d8b-0c7c36ae5ebe.png)
 
- • <a href="#basic-usage">How to use</a> •
-<a href="#contribution">Contribution</a> •
-<a href="#license">License</a> •
-<a href="#support">Support</a> •
+The easiest and laziest approach to a SQLite database in Flutter. Declare your tables and columns once, then do CRUD without writing a single SQL query — `sqflite` underneath, so anything it can do, you can still do.
 
+On pub.dev: **[easiestdb](https://pub.dev/packages/easiestdb)**
 
-[![](https://badgen.net/github/watchers/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/stars/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/forks/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/issues/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/open-issues/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/closed-issues/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/label-issues/p32929/EasiestSqlFlutter/help-wanted/open)]() [![](https://badgen.net/github/prs/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/open-prs/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/closed-prs/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/merged-prs/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/commits/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/last-commit/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/branches/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/releases/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/tags/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/license/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/contributors/p32929/EasiestSqlFlutter)]() [![](https://badgen.net/github/dependents-pkg/p32929/EasiestSqlFlutter)]() 
-
-[![](https://badgen.net/pub/v/easiestdb)]() [![](https://badgen.net/pub/likes/easiestdb)]() [![](https://badgen.net/pub/sdk-version/easiestdb)]() [![](https://badgen.net/pub/flutter-platform/easiestdb)]() 
-
-## Share
-Sharing with your friends is just one click away from here
-
-[![facebook](https://image.flaticon.com/icons/png/32/124/124010.png)](https://www.facebook.com/sharer/sharer.php?u=https://pub.dev/packages/easiestdb)
-[![twitter](https://image.flaticon.com/icons/png/32/124/124021.png)](https://twitter.com/intent/tweet?source=https://pub.dev/packages/easiestdb)
-[![tumblr](https://image.flaticon.com/icons/png/32/124/124012.png)](https://www.tumblr.com/share?v=3&u=https://pub.dev/packages/easiestdb)
-[![pocket](https://image.flaticon.com/icons/png/32/732/732238.png)](https://getpocket.com/save?url=https://pub.dev/packages/easiestdb)
-[![pinterest](https://image.flaticon.com/icons/png/32/124/124039.png)](https://pinterest.com/pin/create/button/?url=https://pub.dev/packages/easiestdb)
-[![reddit](https://image.flaticon.com/icons/png/32/2111/2111589.png)](https://www.reddit.com/submit?url=https://pub.dev/packages/easiestdb)
-[![linkedin](https://image.flaticon.com/icons/png/32/1409/1409945.png)](https://www.linkedin.com/shareArticle?mini=true&url=https://pub.dev/packages/easiestdb)
-[![whatsapp](https://image.flaticon.com/icons/png/32/733/733585.png)](https://api.whatsapp.com/send?text=https://pub.dev/packages/easiestdb)
-
-## Support
-If you like my works and want to support me/my works, feel free to support or donate. My payment details can be found here: https://p32929.github.io/SendMoney2Me/
+[![pub version](https://badgen.net/pub/v/easiestdb)](https://pub.dev/packages/easiestdb) [![pub likes](https://badgen.net/pub/likes/easiestdb)](https://pub.dev/packages/easiestdb)
 
 ## Installation
 check out the [pub.dev](https://pub.dev/packages/easiestdb) for updated installation instructions
@@ -42,7 +23,7 @@ Add as many tables and columns you want using these simple codes.
 
 Suppose, we're trying to create a database of two tables named People and Test, each containing three columns.
 So, we'll write:
-```
+```dart
 EasiestDb.init(dbName: "Data", version: 1, dbTables: [
     DbTable("People", dbColumns: [
       DbColumn('Col 1'), // Default data type is TEXT
@@ -64,7 +45,7 @@ Also, you may add as many SQL Constrains in `columnDataType` parameter. By defau
 
 Add data in the 1st(0) table:
 
-```
+```dart
 EasiestDb.addData(0, [
     Datum(1, "AAA"),
     Datum(2, "123"),
@@ -80,7 +61,7 @@ To pass anything other than `string` in `addData` function, you can just convert
 
 Get all data from the 1st(0) table ( all the indexes start from 0 )
 
-```
+```dart
 EasiestDb.getAllData(0).then((listMap) {
     listMap.forEach((map) {
         print("${map.values.elementAt(0)}"); // Showing the value of the ID column
@@ -94,7 +75,7 @@ EasiestDb.getAllData(0).then((listMap) {
 
 Get data from the 1st(0) table and the 7th(7) row ( all the indexes start from 0 but the rowId starts from 1 )
 
-```
+```dart
 EasiestDb.getOneRowData(0, 7).then((listMap) {
     listMap.forEach((map) {
         print("${map.values.elementAt(0)}"); // Showing the value of the ID column
@@ -108,7 +89,7 @@ EasiestDb.getOneRowData(0, 7).then((listMap) {
 
 Searching data in 1st(0) table in the 2nd(1) column by a value:
 
-```
+```dart
 EasiestDb.getRowsByMatchingColumnData(0, 1, 'AAA').then((listMap) {
     listMap.forEach((map) {
         print("${map.values.elementAt(0)}"); // Showing the value of the ID column
@@ -123,7 +104,7 @@ EasiestDb.getRowsByMatchingColumnData(0, 1, 'AAA').then((listMap) {
 
 Update data in the first table (0), 7th(7) row:
 
-```
+```dart
 EasiestDb.updateOneDataById(0, 7, [
     Datum(1, "F F F F F F "),
     Datum(2, "G G G G G G "),
@@ -137,7 +118,7 @@ EasiestDb.updateOneDataById(0, 7, [
 
 Delete the 7th(7) row from the 1st(0) table:
 
-```
+```dart
 EasiestDb.deleteOneData(0, 7).then((val) {
     print("Count: $val");
 });
@@ -149,7 +130,7 @@ EasiestDb.deleteOneData(0, 7).then((val) {
 
 Delete a one/more data from the first table if matches value in the 2nd(1) column:
 
-```
+```dart
 EasiestDb.deleteDataBySearchingInColumn(0, Datum(
     1, "F F F F F F "
 )).then((val) {
@@ -162,7 +143,7 @@ EasiestDb.deleteDataBySearchingInColumn(0, Datum(
 
 Delete/Drop the 2nd(1) table:
 
-```
+```dart
 EasiestDb.deleteTable(1);
 ```
 
@@ -171,7 +152,7 @@ EasiestDb.deleteTable(1);
 
 Delete/Drop the whole database:
 
-```
+```dart
 EasiestDb.deleteDatabase();
 ```
 
@@ -180,56 +161,53 @@ EasiestDb.deleteDatabase();
 
 And last but not the least, if you're trying to do something but there's no a function/method created for that command, you can always get the database object and run any custom command like below:
 
-```
+```dart
 EasiestDb.getDatabaseObject().execute(sqlCommand)
 ```
 
-But if you really want that function implemented in `easiestdb` library, you can: 
-1. fork the repo
-2. create a new branch by your `github username`
-3. add the code
-4. commit + push
-5. make a pull request.
-
-You're welcome...
+If you want that helper implemented in `easiestdb` itself, see the contributing section below.
 
 ## License
-```
-MIT License
 
-Copyright (c) 2020 Fayaz Bin Salam
+MIT License — Copyright (c) 2020 Fayaz Bin Salam. See [LICENSE](LICENSE) for the full text.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-```
-
-## Contribution
+## Thanks
 Lastly, I wanna thank the Flutter team for the amazing framework and [tekartik](https://github.com/tekartik/) for the sqflite library.
 And thanks to everyone for using `easiestdb` and thanks in advance to everyone for contributing...
 
 Also, you might wanna try the Android/Java version of this library from here: https://github.com/p32929/EasiestSqlLibrary
 
+## Contributing
+
+Contributions are warmly welcomed and greatly appreciated! Whether it's a bug fix, new feature, or improvement, your input helps make this project better for everyone.
+
+Before submitting a pull request, please:
+
+1. Create an issue describing the feature or bug fix you'd like to work on
+2. Wait for discussion and approval to ensure alignment with project goals
+3. Fork the repository and create your feature branch
+4. Submit your pull request with a clear description of changes
+
+This approach helps avoid duplicate efforts and ensures smooth collaboration. Thank you for considering contributing!
+
+## Share
+
+Sharing this repository with your friends is just one click away from here
+
+[![facebook](https://user-images.githubusercontent.com/6418354/179013321-ac1d1452-0689-493f-9066-940cf2302b6e.png)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/p32929/EasiestdbFlutter/)
+[![twitter](https://user-images.githubusercontent.com/6418354/179013351-7d8d6d1c-4ce2-46ab-bef8-4c4765a1b888.png)](https://twitter.com/intent/tweet?url=https://github.com/p32929/EasiestdbFlutter/)
+[![tumblr](https://user-images.githubusercontent.com/6418354/179013343-3111f55a-3b90-40c7-8487-9777348672b0.png)](https://www.tumblr.com/share?v=3&u=https://github.com/p32929/EasiestdbFlutter/)
+[![pocket](https://user-images.githubusercontent.com/6418354/179013334-b095c45f-becf-49f4-9ee1-5a731a9b1f85.png)](https://getpocket.com/save?url=https://github.com/p32929/EasiestdbFlutter/)
+[![pinterest](https://user-images.githubusercontent.com/6418354/179013331-44cd9206-11b1-4b65-becb-5863b61c828f.png)](https://pinterest.com/pin/create/button/?url=https://github.com/p32929/EasiestdbFlutter/)
+[![reddit](https://user-images.githubusercontent.com/6418354/179013338-7416ae3f-73ba-4522-86e1-1374d7082d22.png)](https://www.reddit.com/submit?url=https://github.com/p32929/EasiestdbFlutter/)
+[![linkedin](https://user-images.githubusercontent.com/6418354/179013327-ca7b7102-1da8-4b1c-858f-1a6e5f21bd70.png)](https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/p32929/EasiestdbFlutter/)
+[![whatsapp](https://user-images.githubusercontent.com/6418354/179013353-f477fa0b-3e6f-4138-a357-c9991b23ff88.png)](https://api.whatsapp.com/send?text=https://github.com/p32929/EasiestdbFlutter/)
+
 ---
 
 ## Support
 
-If this saved you time, you can buy me a coffee — it keeps these projects maintained and free.
+If this saved you time, you can buy me a coffee — it keeps these projects maintained and free. Other payment options: https://p32929.github.io/SendMoney2Me/
 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-%E2%98%95-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black)](https://www.buymeacoffee.com/p32929)
 
